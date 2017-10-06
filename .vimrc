@@ -21,7 +21,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " info line... d
 Plugin 'tmhedberg/SimpylFold' " code folding
 Plugin 'Valloric/YouCompleteMe' " code completion
 Plugin 'vim-scripts/indentpython.vim' " autoindent PEP8 python
-Plugin 'ctrlpvim/ctrlp.vim' " file finder, hit <CTRL-p>
+" Plugin 'ctrlpvim/ctrlp.vim' " file finder, hit <CTRL-p>
 
 
 " All of your Plugins must be added before the following line
@@ -69,7 +69,10 @@ set encoding=utf-8
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" test crazy window idea:
+" simpler switching of active tab with alt-arrows
+noremap <S-Right> :wincmd w<CR>
+
+" RUN PYTHON IN WINDOW - test crazy window idea:
 " Bind ` to save file if modified and execute python script in a buffer.
 nnoremap <silent> ` :call SaveAndExecutePython()<CR>
 vnoremap <silent> ` :<C-u>call SaveAndExecutePython()<CR>
