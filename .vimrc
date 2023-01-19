@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'ojroques/vim-oscyank' " vim copy/paste between remote and ios
 Plugin 'scrooloose/nerdtree' " file tree, not sure what htis does...
 
 Plugin 'jnurmine/Zenburn' " color scheme
@@ -19,7 +20,6 @@ Plugin 'altercation/vim-colors-solarized' " color scheme, GUI mode
 Plugin 'scrooloose/syntastic' " check sytax at save
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " info line... doesn't seem to work
 Plugin 'tmhedberg/SimpylFold' " code folding
-Plugin 'Valloric/YouCompleteMe' " code completion
 Plugin 'vim-scripts/indentpython.vim' " autoindent PEP8 python
 " Plugin 'ctrlpvim/ctrlp.vim' " file finder, hit <CTRL-p>
 
@@ -29,6 +29,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Other settings to be set here:
+
+" Enable ios copy paste
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif"
+
+
 let python_highlight_all=1
 syntax on	" sytax highlightin
 
